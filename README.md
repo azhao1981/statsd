@@ -11,7 +11,7 @@ We ([Etsy][etsy]) [blogged][blog post] about how it works and why we created it.
 Inspiration
 -----------
 
-StatsD was inspired (heavily) by the project (of the same name) at Flickr.
+StatsD was inspired(官方授意的) (heavily) by the project (of the same name) at Flickr.
 Here's a post where Cal Henderson described it in depth:
 [Counting and timing][counting-timing]
 Cal re-released the code recently:
@@ -21,7 +21,7 @@ Key Concepts
 --------
 
 * *buckets*
-  Each stat is in its own "bucket". They are not predefined anywhere. Buckets
+  Each stat is in its own "bucket(桶)". They are not predefined(预先定义的) anywhere. Buckets
 can be named anything that will translate to Graphite (periods make folders,
 etc)
 
