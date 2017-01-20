@@ -34,7 +34,15 @@ StatsD::increment("grue.dinners");
 
 That’s it. That line of code will create a new counter on the fly and increment it every time it’s executed. You can then go look at your graph and bask in(感到舒适) the awesomeness, or for that matter, spot someone up to no good in the middle of the night:
 
-[iamge1](https://codeascraft.com/wp-content/uploads/2011/02/logins2.png)
+![iamge1](https://codeascraft.com/wp-content/uploads/2011/02/logins2.png)
+
+We can use graphite’s data-processing tools to take the the data above and make a graph that highlights deviations(偏差) from the norm(标准):
+
+![iamge2](https://codeascraft.com/wp-content/uploads/2011/02/login_fails2.png)
+
+
+
+
 
 
 
