@@ -3,7 +3,7 @@ StatsD [![Build Status][travis-ci_status_img]][travis-ci_statsd]
 
 A network daemon that runs on the [Node.js][node] platform and
 listens for statistics, like counters and timers, sent over [UDP][udp] or
-[TCP][tcp] and sends aggregates to one or more pluggable backend services (e.g.,
+[TCP][tcp] and sends aggregates(聚集) to one or more pluggable(热拨插) backend services (e.g.,
 [Graphite][graphite]).
 
 We ([Etsy][etsy]) [blogged][blog post] about how it works and why we created it.
