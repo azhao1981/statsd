@@ -24,9 +24,9 @@ Timing
 
     glork:320|ms|@0.1
 
-The glork took 320ms to complete this time. StatsD figures out percentiles,
-average (mean), standard deviation, sum, lower and upper bounds for the flush interval.
-The percentile threshold can be tweaked with `config.percentThreshold`.
+The glork took 320ms to complete this time. StatsD figures out(算出) percentiles(百分比),
+average (mean), standard deviation, sum, lower and upper bounds(最大值) for the flush interval(每个刷新间隔的).
+The percentile threshold can be tweaked(调整) with `config.percentThreshold`.
 
 The percentile threshold can be a single value, or a list of values, and will
 generate the following list of stats for each threshold:
@@ -39,25 +39,25 @@ Where `$KEY` is the stats key you specify when sending to statsd, and `$PCT` is
 the percentile threshold.
 
 Note that the `mean` metric is the mean value of all timings recorded during
-the flush interval whereas `mean_$PCT` is the mean of all timings which fell
-into the `$PCT` percentile for that flush interval. And the same holds for sum
+the flush interval whereas(反之) `mean_$PCT` is the mean of all timings which fell
+into(变成) the `$PCT` percentile for that flush interval. And the same holds(同样) for sum
 and upper. See [issue #157](https://github.com/etsy/statsd/issues/157) for a
 more detailed explanation of the calculation.
 
 If the count at flush is 0 then you can opt to send no metric at all for this timer,
 by setting `config.deleteTimers`.
 
-Use the `config.histogram` setting to instruct statsd to maintain histograms
-over time.  Specify which metrics to match and a corresponding list of
-ordered non-inclusive upper limits of bins (class intervals).
-(use `inf` to denote infinity; a lower limit of 0 is assumed)
+Use the `config.histogram` (直方图) setting to instruct(命令) statsd to maintain(维持) histograms
+over time(随着时间的过去).  Specify which metrics to match and a corresponding list of
+ordered non-inclusive upper limits of bins(工具屉) (class intervals(间隔)).
+(use `inf` to denote(指示) infinity(无限大); a lower limit of 0 is assumed(假定的))
 Each `flushInterval`, statsd will store how many values (absolute frequency)
 fall within each bin (class interval), for all matching metrics.
 Examples:
 
 * no histograms for any timer (default): `[]`
 * histogram to only track render durations,
-  with unequal class intervals and catchall for outliers:
+  with unequal class intervals and catchall(装杂物的容器) for outliers(离群值):
 
         [ { metric: 'render', bins: [ 0.01, 0.1, 1, 10, 'inf'] } ]
 
@@ -68,20 +68,20 @@ Examples:
           { metric: '', bins: [ 50, 100, 150, 200, 'inf'] } ]
 
 Statsd also maintains a counter for each timer metric. The 3rd field
-specifies the sample rate for this counter (in this example @0.1). The field
+specifies the sample rate(抽样率) for this counter (in this example @0.1). The field
 is optional and defaults to 1.
 
 Note:
 
 * first match for a metric wins.
-* bin upper limits may contain decimals.
-* this is actually more powerful than what's strictly considered
-histograms, as you can make each bin arbitrarily wide,
+* bin upper limits(上限) may contain decimals(小数).
+* this is actually more powerful than what's strictly(严格地) considered
+histograms, as you can make each bin arbitrarily(武断地) wide(大),
 i.e. class intervals of different sizes.
 
-Gauges
+Gauges(计量表)
 ------
-StatsD now also supports gauges, arbitrary values, which can be recorded.
+StatsD now also supports gauges, arbitrary(任意) values, which can be recorded.
 
     gaugor:333|g
 
@@ -98,7 +98,7 @@ So if `gaugor` was `333`, those commands would set it to `333 - 10 + 4`, or
 
 Note:
 
-This implies you can't explicitly set a gauge to a negative number
+This implies you can't explicitly(明确地) set a gauge to a negative number
 without first setting it to zero.
 
 Sets

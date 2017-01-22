@@ -2,7 +2,7 @@ Metric namespacing
 -------------------
 The metric namespacing in the Graphite backend is configurable with regard to
 the prefixes. Per default all stats are put under `stats` in Graphite, which
-makes it easier to consolidate them all under one schema. However it is
+makes it easier to consolidate(巩固) them all under one schema(模式). However it is
 possible to change these namespaces in the backend configuration options.
 The available configuration options (living under the `graphite` key) are:
 
